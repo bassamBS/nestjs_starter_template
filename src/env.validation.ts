@@ -14,6 +14,21 @@ class EnvironmentVariables {
 
   @IsString()
   SHOPIFY_APP_SECRET_KEY: string;
+
+  @IsString()
+  MAILGUN_API_KEY: string;
+
+  @IsString()
+  MAILGUN_DOMAIN: string;
+
+  @IsString()
+  MAILGUN_USERNAME: string;
+
+  @IsString()
+  MAILGUN_TO: string;
+
+  @IsString()
+  MAILGUN_FROM: string;
 }
 
 export function validate(config: Record<string, unknown>) {
