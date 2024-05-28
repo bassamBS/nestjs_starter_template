@@ -2,9 +2,12 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { HINDBAG } from './constant';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { winstonLogger } from './logger.config';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    logger: winstonLogger,
+  });
   app.setGlobalPrefix(HINDBAG);
 
   const config = new DocumentBuilder()
