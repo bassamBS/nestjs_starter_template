@@ -1,5 +1,6 @@
 import {
   ExceptionFilter,
+  HttpStatus,
   InternalServerErrorException,
   Logger,
 } from '@nestjs/common';
@@ -10,7 +11,9 @@ export class InternalServerErrorFilter implements ExceptionFilter {
   private readonly logger = new Logger(InternalServerErrorFilter.name);
 
   async catch(exception: InternalServerErrorException) {
-    await this.emailService.sendInternalError(String(exception));
+    if (exception.getStatus() === HttpStatus.INTERNAL_SERVER_ERROR) {
+      await this.emailService.sendInternalError(String(exception));
+    }
 
     this.logger.error(exception);
   }
