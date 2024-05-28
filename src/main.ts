@@ -2,12 +2,14 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { winstonLogger } from './logger.config';
+import { ConfigService } from '@nestjs/config';
 import {
   DOCUMENTATION_DESCRIPTION,
   DOCUMENTATION_ENDPOINT,
   DOCUMENTATION_TITLE,
   DOCUMENTATION_VERSION,
   HINDBAG,
+  PORT,
 } from './constant';
 
 async function bootstrap() {
@@ -28,6 +30,8 @@ async function bootstrap() {
 
   SwaggerModule.setup(DOCUMENTATION_ENDPOINT, app, document);
 
-  await app.listen(3000);
+  const configService = app.get(ConfigService);
+  const port = configService.get(PORT);
+  await app.listen(port);
 }
 bootstrap();
