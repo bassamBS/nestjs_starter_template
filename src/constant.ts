@@ -11,7 +11,7 @@ export const DOCUMENTATION_VERSION = '1.0';
 export const DOCUMENTATION_ENDPOINT = 'hindbag/documentation';
 
 // Email subjects
-export const SUBJECT_INTERNAL_SERVER_ERROR = 'Internal server error';
+export const SUBJECT_INTERNAL_SERVER_ERROR = '[HINDBAG] Internal server error';
 
 // Email templates
 export const TEMPLATE_INTERNAL_SERVER_ERROR = 'internal-server-error.ejs';
