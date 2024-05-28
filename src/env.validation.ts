@@ -1,14 +1,7 @@
 import { plainToInstance } from 'class-transformer';
-import { IsEnum, IsNumber, IsString, validateSync } from 'class-validator';
-
-enum Environment {
-  Production = 'production',
-}
+import { IsNumber, IsString, validateSync } from 'class-validator';
 
 class EnvironmentVariables {
-  @IsEnum(Environment)
-  NODE_ENV: Environment;
-
   @IsNumber()
   // Check the NGINX ubuntu@ultro.ovh configuration
   PORT: number;
