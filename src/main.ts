@@ -1,8 +1,14 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { HINDBAG } from './constant';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { winstonLogger } from './logger.config';
+import {
+  DOCUMENTATION_DESCRIPTION,
+  DOCUMENTATION_ENDPOINT,
+  DOCUMENTATION_TITLE,
+  DOCUMENTATION_VERSION,
+  HINDBAG,
+} from './constant';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
@@ -11,16 +17,16 @@ async function bootstrap() {
   app.setGlobalPrefix(HINDBAG);
 
   const config = new DocumentBuilder()
-    .setTitle('Hindbag')
-    .setDescription('Documentation swagger du projet Hindbag')
-    .setVersion('0.1')
+    .setTitle(DOCUMENTATION_TITLE)
+    .setDescription(DOCUMENTATION_DESCRIPTION)
+    .setVersion(DOCUMENTATION_VERSION)
     .build();
 
   const document = SwaggerModule.createDocument(app, config, {
     ignoreGlobalPrefix: false,
   });
 
-  SwaggerModule.setup('hindbag/documentation', app, document);
+  SwaggerModule.setup(DOCUMENTATION_ENDPOINT, app, document);
 
   await app.listen(3000);
 }
