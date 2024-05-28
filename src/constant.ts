@@ -1,5 +1,8 @@
 export const HINDBAG = 'hindbag';
 
+// .env variable
+export const PORT = 'port';
+
 // Documentation
 export const DOCUMENTATION_TITLE = 'Hindbag';
 export const DOCUMENTATION_DESCRIPTION =
