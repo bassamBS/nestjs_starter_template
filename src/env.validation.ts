@@ -7,15 +7,6 @@ class EnvironmentVariables {
   PORT: number;
 
   @IsString()
-  SHOPIFY_APP_ACCESS_TOKEN: string;
-
-  @IsString()
-  SHOPIFY_APP_API_KEY: string;
-
-  @IsString()
-  SHOPIFY_APP_SECRET_KEY: string;
-
-  @IsString()
   MAILGUN_API_KEY: string;
 
   @IsString()

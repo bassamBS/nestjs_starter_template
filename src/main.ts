@@ -9,7 +9,7 @@ import {
   DOCUMENTATION_ENDPOINT,
   DOCUMENTATION_TITLE,
   DOCUMENTATION_VERSION,
-  HINDBAG,
+  // HINDBAG,
   PORT,
 } from './constant';
 
@@ -18,7 +18,7 @@ async function bootstrap() {
     logger: winstonLogger,
   });
 
-  app.setGlobalPrefix(HINDBAG);
+  // app.setGlobalPrefix(HINDBAG);
 
   app.useGlobalFilters(new InternalServerErrorFilter());
 
